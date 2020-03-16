@@ -806,9 +806,10 @@ WARNING
           FileUtils.mkdir_p yaml_lib
 
           puts run('uname -a')
-          puts run('ls /usr/lib/')
           
-          run('apt-get install libsqlite3-dev')
+          run!('apt-get install libsqlite3-dev')
+          
+          puts run('ls /usr/lib/')
           
           run!("cp #{File.expand_path( "../../../vendor/sqlite3.h", $PROGRAM_NAME )} #{yaml_include}")
           
