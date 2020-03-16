@@ -807,7 +807,7 @@ WARNING
 
           puts run('uname -a')
           
-          run!('apt-get install libsqlite3-dev')
+          run!('apt-get install sqlite3 libsqlite3-dev')
           
           puts run('ls /usr/lib/')
           
