@@ -135,7 +135,7 @@ private
   def stack_not_14_not_16?
     case stack
     when "cedar-14", "heroku-16"
-      return true
+      return false
     else
       return true
     end
@@ -802,6 +802,7 @@ WARNING
           env_vars["BUNDLER_LIB_PATH"]             = "#{bundler_path}" if ruby_version.ruby_version == "1.8.7"
           env_vars["BUNDLE_DISABLE_VERSION_CHECK"] = "true"
 
+          FileUtils.mkdir_p yaml_include
           run!("cp #{File.expand_path( "../../../vendor/sqlite3.h", $PROGRAM_NAME )} #{yaml_include}")
           
           puts "Running: #{bundle_command}"
