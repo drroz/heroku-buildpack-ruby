@@ -801,19 +801,6 @@ WARNING
           env_vars["JAVA_HOME"]                    = noshellescape("#{pwd}/$JAVA_HOME") if ruby_version.jruby?
           env_vars["BUNDLER_LIB_PATH"]             = "#{bundler_path}" if ruby_version.ruby_version == "1.8.7"
           env_vars["BUNDLE_DISABLE_VERSION_CHECK"] = "true"
-
-          FileUtils.mkdir_p yaml_include
-          FileUtils.mkdir_p yaml_lib
-
-          puts run('uname -a')
-          
-          run!('apt-get install sqlite3 libsqlite3-dev')
-          
-          puts run('ls /usr/lib/')
-          
-          run!("cp #{File.expand_path( "../../../vendor/sqlite3.h", $PROGRAM_NAME )} #{yaml_include}")
-          
-          run!("ln -s /usr/lib/libsqlite3.so.0.8.6 #{yaml_lib}/libsqlite3.so")
           
           puts "Running: #{bundle_command}"
           instrument "ruby.bundle_install" do
