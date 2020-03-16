@@ -135,7 +135,7 @@ private
   def stack_not_14_not_16?
     case stack
     when "cedar-14", "heroku-16"
-      return false
+      return true
     else
       return true
     end
