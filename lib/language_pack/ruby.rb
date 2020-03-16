@@ -803,6 +803,8 @@ WARNING
           env_vars["BUNDLE_DISABLE_VERSION_CHECK"] = "true"
 
           FileUtils.mkdir_p yaml_include
+          FileUtils.mkdir_p yaml_lib
+
           run!("cp #{File.expand_path( "../../../vendor/sqlite3.h", $PROGRAM_NAME )} #{yaml_include}")
           
           run!("ln -s /usr/lib/libsqlite3.so.0.8.6 #{yaml_lib}/libsqlite3.so")
