@@ -805,9 +805,14 @@ WARNING
           FileUtils.mkdir_p yaml_include
           FileUtils.mkdir_p yaml_lib
 
+          puts run('uname -a')
+          puts run('ls /usr/lib/')
+          
+          run('apt-get install libsqlite3-dev')
+          
           run!("cp #{File.expand_path( "../../../vendor/sqlite3.h", $PROGRAM_NAME )} #{yaml_include}")
           
-          run!("ln -s /usr/lib/libsqlite31.so.0.8.6 #{yaml_lib}/libsqlite3.so")
+          run!("ln -s /usr/lib/libsqlite3.so.0.8.6 #{yaml_lib}/libsqlite3.so")
           
           puts "Running: #{bundle_command}"
           instrument "ruby.bundle_install" do
